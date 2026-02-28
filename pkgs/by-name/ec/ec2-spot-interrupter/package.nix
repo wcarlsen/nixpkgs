@@ -22,7 +22,6 @@ buildGoModule (finalAttrs: {
   buildPhase = "VERSION=${finalAttrs.version} make build";
 
   postInstall = ''
-    rm $out/bin/readme-test
     mv $out/bin/cmd $out/bin/ec2-spot-interrupter
   '';
 
