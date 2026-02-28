@@ -21,9 +21,9 @@ buildGoModule (finalAttrs: {
 
   buildPhase = "VERSION=${finalAttrs.version} make build";
 
-  postInstall = ''
-    mv $out/bin/cmd $out/bin/ec2-spot-interrupter
-  '';
+  # postInstall = ''
+  #   mv $out/bin/cmd $out/bin/ec2-spot-interrupter
+  # '';
 
   nativeInstallCheckInputs = [ versionCheckHook ];
   versionCheckKeepEnvironment = [ "HOME" ];
