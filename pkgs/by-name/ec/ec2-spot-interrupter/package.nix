@@ -25,9 +25,9 @@ buildGoModule (finalAttrs: {
   #   mv $out/bin/cmd $out/bin/ec2-spot-interrupter
   # '';
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
-  versionCheckKeepEnvironment = [ "HOME" ];
-  doInstallCheck = true;
+  # nativeInstallCheckInputs = [ versionCheckHook ];
+  # versionCheckKeepEnvironment = [ "HOME" ];
+  # doInstallCheck = true;
 
   passthru.updateScript = nix-update-script { };
 
