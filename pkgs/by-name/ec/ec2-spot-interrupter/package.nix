@@ -19,7 +19,7 @@ buildGoModule (finalAttrs: {
 
   vendorHash = "sha256-pjNElAW9Qno7TesLVD4GYGKL++qCZY0pnRJcbZ1aEYg=";
 
-  # buildPhase = "make all";
+  buildPhase = "VERSION=${finalAttrs.version} make build";
 
   postInstall = ''
     rm $out/bin/readme-test
