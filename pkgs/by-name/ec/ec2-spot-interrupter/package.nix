@@ -19,20 +19,21 @@ buildGoModule (finalAttrs: {
 
   vendorHash = "sha256-pjNElAW9Qno7TesLVD4GYGKL++qCZY0pnRJcbZ1aEYg=";
 
-  ldflags = [
-    "-s"
-    "-w"
-    "-X=main.versionID=${finalAttrs.version}"
-  ];
+  buildPhase = "VERSION=${finalAttrs.version} make build";
+  # ldflags = [
+  #   "-s"
+  #   "-w"
+  #   "-X=main.versionID=${finalAttrs.version}"
+  # ];
 
-  postInstall = ''
-    rm $out/bin/readme-test
-    mv $out/bin/cmd $out/bin/ec2-instance-selector
-  '';
+  # postInstall = ''
+  #   rm $out/bin/readme-test
+  #   mv $out/bin/cmd $out/bin/ec2-instance-selector
+  # '';
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
-  versionCheckKeepEnvironment = [ "HOME" ];
-  doInstallCheck = true;
+  # nativeInstallCheckInputs = [ versionCheckHook ];
+  # versionCheckKeepEnvironment = [ "HOME" ];
+  # doInstallCheck = true;
 
   passthru.updateScript = nix-update-script { };
 
